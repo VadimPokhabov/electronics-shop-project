@@ -27,16 +27,6 @@ class Item:
         total_price = self.price * self.quantity
         return total_price
 
-    def pay_rate(self):
-        """
-        Устанавливает новый уровень цен
-
-        :return: pay_rate
-        """
-
-        self.pay_rate = self.pay_rate
-        return self.pay_rate
-
     def apply_discount(self) -> float:
         """
         Применяет установленную скидку для конкретного товара.
