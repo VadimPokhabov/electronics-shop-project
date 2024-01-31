@@ -68,3 +68,19 @@ class Item:
         """
         number = float(str_number)
         return int(number)
+
+    def __repr__(self):
+        """
+        ___repr___
+        Для программистов
+        """
+        return f"Item('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        """
+        __str___
+        Для юзеров
+        """
+        return self.__name
+
+
