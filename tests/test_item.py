@@ -39,3 +39,12 @@ def test___str__():
     item1 = Item("Ноутбук", 50000, 2)
     assert str(item1) == 'Ноутбук'
 
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv("../src/items_.csv")
+
+    Item.instantiate_from_csv("../src/items_error.csv")
+
+
+def test_instantiate_from_csv():
+    Item.instantiate_from_csv("../src/items.csv")
