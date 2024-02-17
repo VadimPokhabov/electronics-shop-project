@@ -67,7 +67,7 @@ class Item:
                 for item in data:
                     cls(str(item["name"]), float(item["price"]), int(item["quantity"]))
 
-        except KeyError:
+        except (KeyError, ValueError):
             raise InstantiateCSVError("Файл item.csv поврежден")
         except FileNotFoundError:
             raise FileNotFoundError("Отсутствует файл item.csv")

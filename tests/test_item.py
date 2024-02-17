@@ -1,6 +1,12 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 
-from src.item import Item
+from src.item import Item, InstantiateCSVError
+
+import pytest
+from pathlib import Path
+
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 def test_calculate_total_price(price=10000, quantity=20):
@@ -40,11 +46,12 @@ def test___str__():
     assert str(item1) == 'Ноутбук'
 
 
+def test_instantiate_from_csv_invalid():
+    invalid_file_path = BASE_DIR.joinpath('src', 'items_error.csv')
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv(invalid_file_path)
+
+
 def test_instantiate_from_csv():
-    Item.instantiate_from_csv("../src/items_.csv")
-
-    Item.instantiate_from_csv("../src/items_error.csv")
-
-
-def test_instantiate_from_csv():
-    Item.instantiate_from_csv("../src/items.csv")
+    file_path = BASE_DIR.joinpath('src', 'items.csv')
+    Item.instantiate_from_csv(file_path)
